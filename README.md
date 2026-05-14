@@ -24,7 +24,9 @@ To run this script locally, you will need:
 
 **1. Clone the repository:**
 ```bash
-git clone https://github.com/YourUsername/Your-Repo-Name.git
+git clone https://github.com/Aaditya-Mohanty/AI-Driven-Threat-Hunting-with-Wazuh-and-Llama-3
+.git<img width="1918" height="987" alt="Screenshot 2026-05-14 222115" src="https://github.com/user-attachments/assets/0c8725d8-19dc-4bbb-a26a-b1bdd6819acf" />
+
 cd Your-Repo-Name
 2. Install dependencies: The script requires the requests and python-dotenv libraries to securely manage API keys and network requests.
 pip install requests python-dotenv
@@ -47,3 +49,5 @@ reason: The alert is indicating that a new Wazuh agent has connected, which is a
 Potential expansions for this project include:
 Automated Remediation: Connecting the AI's output back to Wazuh's Active Response module to automatically block malicious IPs or terminate suspicious processes.
 Cyber Threat Intelligence (CTI) Integration: Cross-referencing alert hashes and IP addresses with platforms like VirusTotal or OpenCTI before making a decision.
+
+
