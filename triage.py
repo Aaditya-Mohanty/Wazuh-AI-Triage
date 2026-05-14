@@ -50,25 +50,22 @@ def analyze_alert_with_ai(alert):
         result = response.json()
         print("\n=== AI SOC Analyst Decision ===")
         # FIXED: Explicitly added  to extract the text from the choices array
-        print(result['choices'][ 0 ]['message']['content'].strip())
+        print(result['choices']['message']['content'].strip())
         print("===============================\n")
     else:
         print(f"Error connecting to AI: {response.status_code} - {response.text}")
 
 # Extract the alerts from our local file
-<<<<<<< HEAD
-extracted_alerts = extract_wazuh_alerts('alert.json')
-=======
 extracted_alerts = extract_wazuh_alerts('/var/ossec/logs/alerts/alerts.json')
->>>>>>> Initial commit
+
 print(f"Successfully extracted {len(extracted_alerts)} alerts ready for AI triage!")
 
 # Send the first alert to the AI for analysis
 if extracted_alerts:
     # FIXED: Added  to send just the single alert from the list
-      analyze_alert_with_ai(extracted_alerts[ 0 ])
+    analyze_alert_with_ai(extracted_alerts)
       
-      # === AUTOMATE GITHUB PUSH ===
+# === AUTOMATE GITHUB PUSH ===
 def push_to_github():
     print("Saving daily AI triage report to GitHub...")
     try:
@@ -83,8 +80,4 @@ def push_to_github():
         print(f"Error syncing with GitHub. Did you make any new changes to commit? Details: {e}")
 
 # Run the automated push
-<<<<<<< HEAD
 push_to_github()
-=======
-push_to_github()
->>>>>>> Initial commit

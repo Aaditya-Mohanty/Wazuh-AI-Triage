@@ -1,0 +1,1 @@
+{"agent": {"name": "DESKTOP-I1PBMQ1", "id": "002"}, "rule": {"level": 3, "description": "New wazuh agent connected.", "id": "501"}, "location": "wazuh-agent", "id": "1716460351.2348", "full_log": "ossec: Agent started: 'DESKTOP-I1PBMQ1 ->any'.", "timestamp": "2024-05-23T10:32:31.391+0000"}
