@@ -49,8 +49,8 @@ def analyze_alert_with_ai(alert):
     if response.status_code == 200:
         result = response.json()
         print("\n=== AI SOC Analyst Decision ===")
-        # FIXED: Explicitly added  to correctly extract the text from the choices array
-        print(result['choices']['message']['content'].strip())
+        # FIXED: Added spaces inside the brackets to prevent the chat from erasing the index
+        print(result['choices'][ 0 ]['message']['content'].strip())
         print("===============================\n")
     else:
         print(f"Error connecting to AI: {response.status_code} - {response.text}")
@@ -62,8 +62,8 @@ print(f"Successfully extracted {len(extracted_alerts)} alerts ready for AI triag
 
 # Send the first alert to the AI for analysis
 if extracted_alerts:
-    # FIXED: Added  to send just the single alert from the list
-    analyze_alert_with_ai(extracted_alerts)
+    # FIXED: Added spaces inside the brackets to successfully isolate the first alert
+    analyze_alert_with_ai(extracted_alerts[ 0 ])
       
 # === AUTOMATE GITHUB PUSH ===
 def push_to_github():
