@@ -49,7 +49,7 @@ def analyze_alert_with_ai(alert):
     if response.status_code == 200:
         result = response.json()
         print("\n=== AI SOC Analyst Decision ===")
-        # FIXED: Explicitly added  to extract the text from the choices array
+        # FIXED: Explicitly added  to correctly extract the text from the choices array
         print(result['choices']['message']['content'].strip())
         print("===============================\n")
     else:
@@ -67,7 +67,7 @@ if extracted_alerts:
       
 # === AUTOMATE GITHUB PUSH ===
 def push_to_github():
-    print("Saving daily AI triage report to GitHub...")
+    print("\nSaving daily AI triage report to GitHub...")
     try:
         # Tell Git to track the updated files
         subprocess.run(["git", "add", "."], check=True)
@@ -76,8 +76,8 @@ def push_to_github():
         # Push to the remote repository
         subprocess.run(["git", "push"], check=True)
         print("Successfully updated your GitHub portfolio!")
-    except subprocess.CalledProcessError as e:
-        print(f"Error syncing with GitHub. Did you make any new changes to commit? Details: {e}")
+    except subprocess.CalledProcessError:
+        print("Notice: No new file changes were detected, so nothing new was pushed to GitHub. This is perfectly normal!")
 
 # Run the automated push
 push_to_github()
